@@ -427,7 +427,7 @@ def post_estate():
         cnx.close()
 
 
-if False:
+if True:
     from werkzeug.middleware.profiler import ProfilerMiddleware
     app.wsgi_app = ProfilerMiddleware(app.wsgi_app, stream=None, profile_dir='/home/isucon/profile')
 
