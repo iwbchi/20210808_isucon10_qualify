@@ -55,7 +55,13 @@ def post_initialize():
     for sql_file in sql_files:
         command = f"mysql -h {mysql_connection_env['host']} -u {mysql_connection_env['user']} -p{mysql_connection_env['password']} -P {mysql_connection_env['port']} {mysql_connection_env['database']} < {path.join(sql_dir, sql_file)}"
         subprocess.run(["bash", "-c", command])
-
+    
+    cnx = cnxpool.connect()
+    try:
+        cur = cnx.cursor(dictionary=True)
+        cur.execute("CREATE INDEX price_id_index ON chair (price, id)")
+    finally:
+        cnx.close()    
     return {"language": "python"}
 
 
@@ -421,7 +427,7 @@ def post_estate():
         cnx.close()
 
 
-if True:
+if False:
     from werkzeug.middleware.profiler import ProfilerMiddleware
     app.wsgi_app = ProfilerMiddleware(app.wsgi_app, stream=None, profile_dir='/home/isucon/profile')
 
