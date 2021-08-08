@@ -21,7 +21,7 @@ LOG_FILES=(
 SERVICES=(
     nginx
     mysql
-    isucari.python
+    isuumo.python
 )
 
 DATE=$( date --iso-8601=seconds )
