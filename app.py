@@ -56,6 +56,12 @@ def post_initialize():
         command = f"mysql -h {mysql_connection_env['host']} -u {mysql_connection_env['user']} -p{mysql_connection_env['password']} -P {mysql_connection_env['port']} {mysql_connection_env['database']} < {path.join(sql_dir, sql_file)}"
         subprocess.run(["bash", "-c", command])
 
+    cnx = cnxpool.connect()
+    cur = cnx.cursor(True)
+    sql = "create index rent_id_index on estate (rent, id)"
+    cur.execute(sql)
+
+
     return {"language": "python"}
 
 
