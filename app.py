@@ -60,8 +60,10 @@ def post_initialize():
     try:
         cur = cnx.cursor(dictionary=True)
         cur.execute("CREATE INDEX price_id_index ON chair (price, id)")
+        cur.execute("CREATE INDEX rent_id_index ON estate (rent, id)")
     finally:
         cnx.close()    
+
     return {"language": "python"}
 
 
