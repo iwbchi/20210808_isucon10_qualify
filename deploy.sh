@@ -14,8 +14,8 @@ SERVERS=(
 
 LOG_FILES=(
     /var/log/mysql/mysql-slow.log
-    /var/log/mysql/access.log
-    /var/log/mysql/error.log
+    /var/log/nginx/access.log
+    /var/log/nginx/error.log
 )
 
 SERVICES=(
