@@ -421,5 +421,10 @@ def post_estate():
         cnx.close()
 
 
+if True:
+    from werkzeug.middleware.profiler import ProfilerMiddleware
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app, stream=None, profile_dir='/home/isucon/profile')
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=getenv("SERVER_PORT", 1323), debug=True, threaded=True)
