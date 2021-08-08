@@ -7,10 +7,10 @@ set -eux
 COMMON_PATHS=(
     /etc/nginx/nginx.conf
     /etc/mysql/mysql.conf.d/mysqld.cnf
-    /home/isucon/isucari/webapp/python/app.py
+    /home/isucon/isuumo/webapp/python/app.py
 )
 # 複数台構成においてサーバごとに別のファイルにする可能性があるもの
 UNCOMMON_PATHS=(
-    /etc/nginx/sites-available/isucari.conf
+    /etc/nginx/sites-available/isuumo.conf
     $HOME/env.sh
 )

@@ -3,8 +3,9 @@
 # ISUCON用のリポジトリのトップレベルに最初から配置されていることを想定
 
 APP_SERVERS=(
-    isucon9-qualify-app2
-    isucon9-qualify-app3
+    isucon10-qualify-app1
+    isucon10-qualify-app2
+    isucon10-qualify-app3
 )
 
 GITHUB_ACCOUNTS=(
@@ -17,15 +18,15 @@ source ./deployed_file_paths.sh
 # TODO 他サーバの考慮をどうするか
 #      そもそもsshできないとファイルを配置することもできない
 #      この項目自体が必要ないかもしれない
-AUTHORIZED_KEYS_PATH=${HOME}/.ssh/authorized_keys
-mkdir -p $( dirname ${AUTHORIZED_KEYS_PATH} )
-test -e ${AUTHORIZED_KEYS_PATH} && rm ${AUTHORIZED_KEYS_PATH}
-touch ${AUTHORIZED_KEYS_PATH}
-chmod 600 ${AUTHORIZED_KEYS_PATH}
-for github_account in ${GITHUB_ACCOUNTS[@]}
-do
-    echo -e "$( curl https://github.com/${github_account}.keys )" >> ${AUTHORIZED_KEYS_PATH}
-done
+#AUTHORIZED_KEYS_PATH=${HOME}/.ssh/authorized_keys
+#mkdir -p $( dirname ${AUTHORIZED_KEYS_PATH} )
+#test -e ${AUTHORIZED_KEYS_PATH} && rm ${AUTHORIZED_KEYS_PATH}
+#touch ${AUTHORIZED_KEYS_PATH}
+#chmod 600 ${AUTHORIZED_KEYS_PATH}
+#for github_account in ${GITHUB_ACCOUNTS[@]}
+#do
+#    echo -e "$( curl https://github.com/${github_account}.keys )" >> ${AUTHORIZED_KEYS_PATH}
+#done
 
 # 各開発者の作業スペースを作成
 for github_account in ${GITHUB_ACCOUNTS[@]}
